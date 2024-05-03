@@ -22,5 +22,9 @@ if __name__ == "__main__":
     OUTFILE = root_dir / "outputs" / "ex_5_2-processed.csv"
 
     # Complete the data processing steps using numpy here.
-
+    raw_data = np.loadtxt(INFILE)
+    raw_data-=raw_data.mean()
+    x=raw_data.std()
+    processed=raw_data/x
     # Save the output to OUTFILE using numpy routines.
+    np.savetxt(OUTFILE, processed, fmt='%.2e')
